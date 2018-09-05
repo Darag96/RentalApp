@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -20,6 +21,7 @@ namespace RentalApplication.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public virtual List<Rental> Rentals { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
